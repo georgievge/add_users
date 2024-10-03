@@ -1,14 +1,14 @@
 ---
 
 - name: ensure wheel group on host
-      group:
-        name: wheel
-        state: present
+  group:
+    name: wheel
+    state: present
 
-    - name: Add the users
-      ansible.builtin.user:
-        name: "{{ item.name }}"
-        comment: "{{ item.comment }}"
-        group: "{{ item.group }}"
-        create_home: "{{ item.create_home }}"
-      loop: "{{ deployed_users }}"
+- name: Add the users
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    comment: "{{ item.comment }}"
+    group: "{{ item.group }}"
+    create_home: "{{ item.create_home }}"
+  loop: "{{ deployed_users }}"
